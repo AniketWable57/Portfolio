@@ -135,3 +135,40 @@ document.addEventListener('DOMContentLoaded', () => {
     type();
     loadSkills();
 });
+
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    // 1. Prevent the default form submission
+    event.preventDefault();
+
+    // 2. Get the values from the input fields
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const userMessage = document.getElementById('message').value;
+    const formStatus = document.getElementById('form-status');
+
+    // Basic validation
+    if (!name || !email || !userMessage) {
+        formStatus.textContent = 'Please fill out all fields.';
+        formStatus.classList.remove('hidden');
+        return;
+    }
+
+    // 3. Construct the message body
+    const phoneNumber = '8308026653';
+    // Encode the message
+    const smsBody = encodeURIComponent(
+        `Contact from website: ${name} (${email}). Message: ${userMessage}`
+    );
+
+    // 4. Create the SMS URL (using the 'sms:' protocol)
+    const smsURL = `sms:${phoneNumber}?body=${smsBody}`;
+
+    // 5. Open the URL
+    // This will prompt the user's device to open its default messaging app.
+    window.location.href = smsURL;
+    
+    // Optional: Provide feedback to the user
+    formStatus.textContent = 'Opening your Text Message app...';
+    formStatus.classList.remove('hidden');
+});
