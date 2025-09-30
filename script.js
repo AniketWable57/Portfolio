@@ -156,19 +156,18 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
     // 3. Construct the message body
     const phoneNumber = '8308026653';
-    // Encode the message
-    const smsBody = encodeURIComponent(
-        `Contact from website: ${name} (${email}). Message: ${userMessage}`
+    // Encode the message to safely pass it in a URL
+    const whatsappMessage = encodeURIComponent(
+        `Hello, I'm ${name} (${email}).\n\n${userMessage}`
     );
 
-    // 4. Create the SMS URL (using the 'sms:' protocol)
-    const smsURL = `sms:${phoneNumber}?body=${smsBody}`;
+    // 4. Create the WhatsApp URL
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
-    // 5. Open the URL
-    // This will prompt the user's device to open its default messaging app.
-    window.location.href = smsURL;
+    // 5. Open the URL in a new window/tab
+    window.open(whatsappURL, '_blank');
     
     // Optional: Provide feedback to the user
-    formStatus.textContent = 'Opening your Text Message app...';
+    formStatus.textContent = 'Opening WhatsApp...';
     formStatus.classList.remove('hidden');
 });
