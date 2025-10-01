@@ -601,3 +601,171 @@ footer {
         margin: 0 10px;
     }
 }
+
+
+
+
+/* ======================================= */
+/* --- PRINT STYLES (for resume output) --- */
+/* ======================================= */
+@media print {
+    /* 1. Reset Global Layout */
+    body {
+        background-color: #ffffff !important; /* White background for printing */
+        color: #000000 !important; /* Black text */
+        font-size: 10pt; /* Smaller font for density */
+        text-align: left !important; /* Resume standard is left-aligned */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 2. Hide Non-Essential & Interactive Elements (ONLY) */
+    .navbar,                /* Hide sticky header and navigation */
+    .menu-toggle,           /* Hide mobile menu button */
+    .hero-graphic,          /* Hide decorative graphic */
+    .cta-group,             /* Hide buttons (View Work, Download Resume) */
+    .project-links,         /* Hide GitHub/Live Site links in projects */
+    .more-projects-link,    /* Hide "See all projects" link */
+    .contact-form,          /* Hide interactive form */
+    .social-links,          /* Hide social icons */
+    footer {                /* Hide footer */
+        display: none !important;
+    }
+    
+    /* Crucial fix: Ensure all content and nested elements are visible */
+    .animate-on-scroll, 
+    .timeline-item, 
+    .project-card, 
+    .activity-card {
+        display: block !important;
+        opacity: 1 !important;
+        transform: none !important; /* Disable all animation effects */
+        box-shadow: none !important;
+        transition: none !important;
+    }
+
+
+    /* 3. Streamline Section Spacing and Borders */
+    .content-section {
+        padding: 5px 0; /* Reduced vertical padding */
+        max-width: 100%;
+        margin: 0 0.5in; /* Standard resume side margins */
+        page-break-inside: avoid; /* Keep sections together */
+    }
+    
+    h2 {
+        font-size: 1.5em;
+        border-bottom: 2px solid #ccc !important; /* Keep a subtle separator */
+        padding-bottom: 3px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        color: #000000;
+        font-weight: bold;
+        text-align: left !important;
+    }
+    
+    /* 4. Optimize Content Presentation */
+    
+    /* Hero Section (Contact Header) */
+    .hero-section {
+        min-height: auto;
+        padding: 0.5in 0.5in 0;
+        display: block;
+        text-align: left;
+    }
+    .hero-content h1 {
+        font-size: 1.8em;
+        margin-bottom: 5px;
+        color: #000000;
+    }
+    .role-typing-text {
+        font-size: 1.1em;
+        color: #555555;
+        margin-bottom: 20px;
+    }
+    #introduction p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    /* Skills - Make it a clean, dense list */
+    #skills p {
+        display: none; /* Hide the intro paragraph above skill cloud */
+    }
+    .skill-cloud {
+        padding: 5px 0 15px 0;
+        gap: 8px;
+        justify-content: left;
+    }
+    .skill-tag {
+        background-color: #f0f0f0; /* Light background for visibility */
+        color: #000000;
+        border: 1px solid #ccc;
+        padding: 3px 8px;
+        font-size: 9pt;
+        /* Remove hover/transform transitions */
+    }
+
+    /* Projects & Experience - Tighten up spacing */
+    .project-list {
+        display: block;
+        gap: 0;
+    }
+    .project-card, .timeline-item, .activity-card {
+        padding: 5px 0 5px 15px; /* Adjust padding to be less bulky */
+        margin-bottom: 15px;
+        border-left: 2px solid #999 !important;
+        background-color: #ffffff;
+        /* Remove hover/transform transitions */
+    }
+
+    .project-card h3, .timeline-item h3, .activity-card h3 {
+        font-size: 1.1em;
+        color: #333333;
+        margin-bottom: 2px;
+    }
+    .tech-stack {
+        font-size: 0.8em;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    
+    /* Lists and Bullet Points */
+    ul {
+        margin-bottom: 10px;
+    }
+    ul li {
+        margin-bottom: 3px;
+        text-align: justify;
+    }
+
+    /* Certifications/Blog - Ensure dual panel stacks nicely */
+    .dual-panel {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .certifications-panel, .blog-panel {
+        padding: 5px 0;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .certifications-panel ul {
+        columns: 2; /* Two columns for dense bullet points */
+        column-gap: 30px;
+    }
+    
+    /* Contact Section - Ensure introductory text remains */
+    #contact {
+        padding-top: 5px;
+    }
+    #contact h2 {
+        display: block !important;
+        text-align: center !important; /* Re-center the title */
+    }
+    #contact p:first-of-type {
+        display: block !important;
+        text-align: center;
+        font-size: 10pt;
+        margin-top: 5px;
+    }
+}
