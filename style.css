@@ -769,3 +769,81 @@ footer {
         margin-top: 5px;
     }
 }
+
+
+
+/* Style for the clickable link */
+.certificate-link {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 12px;
+    margin-top: 10px;
+    background-color: #007bff; /* A nice blue color */
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.certificate-link:hover {
+    background-color: #0056b3;
+}
+
+.cert-icon {
+    margin-right: 5px;
+}
+
+/* Modal (Lightbox) Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (The Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px; /* Adjust max-width as needed */
+    max-height: 90vh; /* Viewport height */
+    object-fit: contain; /* Ensure the image fits nicely */
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Caption Text */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}

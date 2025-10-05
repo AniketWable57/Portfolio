@@ -64,34 +64,52 @@
             </div>
         </section>
 
-        <section id="education" class="content-section animate-on-scroll">
-            <h2>Academic Background 🎓</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item animate-on-scroll">
-                    <h3>Master of Computer Application (MCA)</h3>
-                    <h4>Vidya Pratishthan's, Institute of Information Technology, Baramati.</h4>
-                    <p class="duration">Aug 2023 - Jan 2025</p>
-                    <p class="grade">Grade: <strong>8.20</strong> CGPA</p>
-                    <ul>
-                        <li>Focused on advanced programming, software engineering principles, and database management.</li>
-                        <li>Specialized in full-stack development methodologies relevant to the MERN stack.</li>
-                    </ul>
-                </div>
+      <section id="education" class="content-section animate-on-scroll">
+    <h2>Academic Background 🎓</h2>
+    <div class="timeline">
 
-                <div class="timeline-item animate-on-scroll">
-                    <h3>Bachelor of Computer Application (BCA)</h3>
-                    <h4>Vidya Pratishthan's Arts, Science & Commerce College, Baramati.</h4>
-                    <p class="duration">Jul 2020 - Jun 2023</p>
-                    <p class="grade">Grade: <strong>8.74</strong> CGPA</p>
-                    <ul>
-                        <li>Built a strong foundation in core computer science concepts, Java, C, and web fundamentals.</li>
-                        <li>Maintained excellent academic standing throughout the program.</li>
-                    </ul>
-                </div>
+        <div class="timeline-item animate-on-scroll">
+            <h3>Master of Computer Application (MCA)</h3>
+            <h4>Vidya Pratishthan's, Institute of Information Technology, Baramati.</h4>
+            <p class="duration">Aug 2023 - Jan 2025</p>
+            <p class="grade">Grade: <strong>8.20</strong> CGPA</p>
 
+            <div class="certificate-link" onclick="openModal('MCA.jpg', 'MCA Degree Certificate')">
+                <span class="cert-icon">📜</span> View Certificate
             </div>
-        </section>
+
+            <ul>
+                <li>Focused on advanced programming, software engineering principles, and database management.</li>
+                <li>Specialized in full-stack development methodologies relevant to the MERN stack.</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <div class="timeline-item animate-on-scroll">
+            <h3>Bachelor of Computer Application (BCA)</h3>
+            <h4>Vidya Pratishthan's Arts, Science & Commerce College, Baramati.</h4>
+            <p class="duration">Jul 2020 - Jun 2023</p>
+            <p class="grade">Grade: <strong>8.74</strong> CGPA</p>
+
+            <div class="certificate-link" onclick="openModal('MCA.jpg', 'BCA Degree Certificate')">
+                <span class="cert-icon">📜</span> View Certificate
+            </div>
+
+            <ul>
+                <li>Built a strong foundation in core computer science concepts, Java, C, and web fundamentals.</li>
+                <li>Maintained excellent academic standing throughout the program.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="certificate-modal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="modal-image" src="" alt="">
+        <div id="caption"></div>
+    </div>
+</section>
         
         <section id="projects" class="content-section animate-on-scroll">
             <h2>Featured Projects 🚀</h2>

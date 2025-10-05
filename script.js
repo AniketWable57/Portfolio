@@ -228,3 +228,63 @@ document.addEventListener('DOMContentLoaded', () => {
     type();
     loadSkills();
 });
+
+
+  // Get the modal element
+    var modal = document.getElementById("certificate-modal");
+
+    // Get the image and caption elements inside the modal
+    var modalImg = document.getElementById("modal-image");
+    var captionText = document.getElementById("caption");
+
+    /**
+     * Function to open the modal with a specific image and caption.
+     * @param {string} imgSrc - The path to the certificate image.
+     * @param {string} caption - The descriptive text for the certificate.
+     */
+    function openModal(imgSrc, caption) {
+        modal.style.display = "block";
+        modalImg.src = imgSrc;
+        captionText.innerHTML = caption;
+    }
+
+    /**
+     * Function to close the modal.
+     */
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Optional: Close the modal if the user clicks anywhere outside of the image
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }   
+
+
+
+    // 1. Disable Right-Click on the entire document
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // 2. Prevent dragging the image (which often allows a quick save)
+    document.getElementById("modal-image").setAttribute('draggable', false);
+    // You'd add this line to your existing script when the modal opens
+
+    // 3. Disable keyboard shortcuts for saving (Ctrl+S, etc.) - less reliable
+    document.onkeydown = function(e) {
+        // Disable F12 (Developer Tools)
+        if(e.keyCode == 123) {
+            return false;
+        }
+        // Disable Ctrl+Shift+I, J, C (Developer Tools)
+        if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) {
+            return false;
+        }
+        // Disable Ctrl+U (View Source)
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+    };
